@@ -1,5 +1,9 @@
 <h2>Products</h2>
 
+<button (click)="addRandomProduct()">Add Random Product</button>
+
 <div *ngFor="let product of products$ | async">
-  <p>{{ product.title }} - ${{ product.price }}</p>
+  <p>{{ product.title }} - ${{ product.price }}
+    <button (click)="removeProduct(product.id)">Remove</button>
+  </p>
 </div>
