@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../store/product.state';
 import { addProduct, removeProduct } from '../store/product.action';
 import { CommonModule } from '@angular/common';
+import * as CartActions from '../../cart/store/cart.action';
 
 @Component({
   selector: 'app-product-list',
@@ -18,13 +19,13 @@ export class ProductList {
   constructor(private store: Store) {
     this.products$ = this.store.select(selectAllProducts);
   }
+  quantities: { [key: number]: number } = {};
 
-    addRandomProduct() {
-    const id = Math.floor(Math.random() * 1000);
-    this.store.dispatch(addProduct({ product: { id, title: 'New Product', price: 100 } }));
-  }
+addToCart(product: Product) {
+  const quantity = this.quantities[product.id] || 1;
 
-  removeProduct(id: number) {
-    this.store.dispatch(removeProduct({ id }));
-  }
+  this.store.dispatch(
+    CartActions.addToCart({ product, quantity })
+  );
+}
 }

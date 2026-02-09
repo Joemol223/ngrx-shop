@@ -1,9 +1,22 @@
 <h2>Products</h2>
 
-<button (click)="addRandomProduct()">Add Random Product</button>
-
 <div *ngFor="let product of products$ | async">
-  <p>{{ product.title }} - ${{ product.price }}
-    <button (click)="removeProduct(product.id)">Remove</button>
+  <p>
+    {{ product.title }} - ${{ product.price }}
   </p>
+
+  <input
+    type="number"
+    min="1"
+    [value]="quantities[product.id] || 1"
+    (input)="quantities[product.id] = $any($event.target).value"
+  />
+
+  <button (click)="addToCart(product)">
+    Add To Cart
+  </button>
+
+  <hr>
 </div>
+
+
