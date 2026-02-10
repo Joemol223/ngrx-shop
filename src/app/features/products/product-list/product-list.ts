@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectAllProducts } from '../store/product.selectors';
-import { loadProducts } from '../store/product.action';
+import { loadProducts } from '../store/product.actions';
 import { Observable } from 'rxjs';
 import { Product } from '../store/product.state';
 // import { addProduct, removeProduct } from '../store/product.action';
 import { CommonModule } from '@angular/common';
-import * as CartActions from '../../cart/store/cart.action';
+import * as CartActions from '../../cart/store/cart.actions';
 
 @Component({
   selector: 'app-product-list',

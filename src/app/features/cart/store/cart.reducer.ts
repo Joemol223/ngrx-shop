@@ -1,12 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
 import { initialState } from './cart.state';
-import * as CartActions from './cart.action';
+import * as CartActions from './cart.actions';
 
 export const cartReducer = createReducer(
 
   initialState,
 
- on(CartActions.addToCart, (state, { product, quantity }) => {
+ on(CartActions.addToCart, (state, { product }) => {
 
   const existingItem = state.items.find(
     item => item.product.id === product.id
@@ -18,7 +18,7 @@ export const cartReducer = createReducer(
       ...state,
       items: state.items.map(item =>
         item.product.id === product.id
-          ? { ...item, quantity: item.quantity + quantity }
+          ? { ...item, quantity: item.quantity + 1 }
           : item
       )
     };
@@ -27,7 +27,7 @@ export const cartReducer = createReducer(
   // If not exists → add new item
   return {
     ...state,
-    items: [...state.items, { product, quantity }]
+    items: [...state.items, { product, quantity: 1 }]
   };
 }),
 

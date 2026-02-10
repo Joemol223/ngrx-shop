@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ProductList, CartPage, CommonModule],
+  imports: [ ProductList, CartPage, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
