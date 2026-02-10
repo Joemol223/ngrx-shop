@@ -1,13 +1,25 @@
 <h2>Cart</h2>
 
-<div *ngFor="let item of cartItems$ | async">
-  <p>
-    {{ item.product.title }} -
-    {{ item.quantity }} × ${{ item.product.price }}
-    =
-    ${{ item.product.price * item.quantity }}
-  </p>
+<div *ngIf="(cartItems$ | async)?.length === 0" class="empty">
+  Cart is empty 🛒
 </div>
 
-<h3>Total: ${{ total$ | async }}</h3>
+<div class="cart-item" *ngFor="let item of cartItems$ | async">
+  <div>
+    <strong>{{ item.product.title }}</strong>
+    <p>
+      ${{ item.product.price }} × {{ item.quantity }}
+    </p>
+  </div>
 
+  <div class="item-total">
+    ${{ item.product.price * item.quantity }}
+  </div>
+
+</div>
+
+<hr />
+
+<h3 class="total">
+  Total: ${{ total$ | async }}
+</h3>

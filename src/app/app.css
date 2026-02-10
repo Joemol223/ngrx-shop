@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f5f6fa;
+}
+
+.header {
+  background: #1e1e2f;
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-badge span {
+  background: #ff6b6b;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-left: 6px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}

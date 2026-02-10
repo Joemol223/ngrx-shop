@@ -1,0 +1,38 @@
+.cart {
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item button {
+  background: transparent;
+  border: none;
+  color: #ff6b6b;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.item-total {
+  font-weight: bold;
+}
+
+.empty {
+  color: #777;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.total {
+  text-align: right;
+  margin-top: 16px;
+}

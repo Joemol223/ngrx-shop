@@ -1,11 +1,17 @@
-<h1>Welcome to NGRX Shop!</h1>
+<header class="header">
+  <h1>🛒 NgRx Shop</h1>
 
- <div class="container">
-<header>
-  Cart Items: {{ cartCount$ | async }}
+  <div class="cart-badge">
+    Cart: <span>{{ cartCount$ | async }}</span>
+  </div>
 </header>
 
-<app-product-list></app-product-list>
-<hr>
-<app-cart-page></app-cart-page>
-</div>
+<main class="container">
+  <section class="products">
+    <app-product-list></app-product-list>
+  </section>
+
+  <section class="cart">
+    <app-cart-page></app-cart-page>
+  </section>
+</main>
