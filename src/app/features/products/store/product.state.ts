@@ -6,12 +6,14 @@ export interface Product {
 
 export interface ProductState {
   products: Product[];
+   loading: boolean;
+  error: string | null;
 }
 
-export const initialState: ProductState = {
-  products: [
-    { id: 1, title: 'Laptop', price: 1200 },
-    { id: 2, title: 'Phone', price: 800 },
-    { id: 3, title: 'Headphones', price: 200 }
-  ]
-};
+// export const initialState: ProductState = {
+//   products: [
+//     { id: 1, title: 'Laptop', price: 1200 },
+//     { id: 2, title: 'Phone', price: 800 },
+//     { id: 3, title: 'Headphones', price: 200 }
+//   ]
+// };

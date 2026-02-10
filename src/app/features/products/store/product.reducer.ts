@@ -1,16 +1,30 @@
 import { createReducer, on } from '@ngrx/store';
-import { initialState } from './product.state';
-import { addProduct,removeProduct } from './product.action';
+import * as ProductActions from './product.action';
+import { ProductState } from './product.state';
 
-export const productReducer =
-  createReducer(
-    initialState,
-    on(addProduct, (state, { product }) => ({
-      ...state,
-      products: [...state.products, product]
-    })),
-    on(removeProduct, (state, { id }) => ({
-      ...state,
-      products: state.products.filter(p => p.id !== id)
-    }))
-  );
+export const initialState: ProductState = {
+  products: [],
+  loading: false,
+  error: null
+};
+
+export const productReducer = createReducer(
+  initialState,
+
+  on(ProductActions.loadProducts, state => ({
+    ...state,
+    loading: true
+  })),
+
+  on(ProductActions.loadProductsSuccess, (state, { products }) => ({
+    ...state,
+    loading: false,
+    products
+  })),
+
+  on(ProductActions.loadProductsFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error
+  }))
+);

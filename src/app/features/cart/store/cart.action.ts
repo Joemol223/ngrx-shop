@@ -3,7 +3,7 @@ import { Product } from '../../products/store/product.state';
 
 export const addToCart = createAction(
   '[Cart] Add To Cart',
-  props<{ product: Product; quantity: number  }>()
+  props<{ product: Product; }>()
 );
 
 export const removeFromCart = createAction(
